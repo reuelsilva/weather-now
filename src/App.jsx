@@ -9,6 +9,7 @@ import './App.css'
 function App() {
   const [weather, setWeather] = useState('')
   const API_KEY_1 = '02f15d7d943c547b401971e975e7c6e4'
+  const API_KEY_2 = 'OWIhNlaNHT20WEkR1oJMusUzP36nEfx-VkHUNJsJevo'
 
   const getWeatherData = async (city, key)=>{    
     await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=pt_br&appid=${key}`)
@@ -20,6 +21,29 @@ function App() {
     document.getElementById('grid-container').style.display = 'none'
     document.getElementById('weather-data').style.display = 'none'
     document.getElementById('error-message').style.display = 'none'
+  }
+
+  const setBackground = async (query, key)=>{
+    await axios.get(`https://api.unsplash.com/search/photos?page=1&query=${query}&client_id=${key}`)
+    .then((res)=>{
+      const url = res.data.results[0].urls.regular
+      applyBackground(url)
+    })
+    .catch(()=>{
+      resetBackground()
+    })    
+  }
+
+  const applyBackground = (imageURL)=>{
+    document.body.style.backgroundImage = `url(${imageURL})`
+    document.body.style.backgroundSize = 'cover'
+    document.body.style.backgroundPosition = 'center bottom'
+  }
+
+  const resetBackground = ()=>{
+    document.body.style.removeProperty('background-image')
+    document.body.style.removeProperty('background-size')
+    document.body.style.removeProperty('background-position')
   }
 
   useEffect(()=>{
@@ -54,9 +78,12 @@ function App() {
       document.querySelector('#wind > span').innerText = `${weather.data.wind.speed}`
 
       document.getElementById('weather-data').style.display = 'block'
+      const query = weather.data.name
+      setBackground(query, API_KEY_2)
     }else{
       if(weather.status == 404){
         document.getElementById('error-message').style.display = 'block'
+        resetBackground()
       }
     }
   }, [weather])
