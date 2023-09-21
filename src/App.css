@@ -23,6 +23,12 @@ body{
   color: #FDFDFD;
 }
 
+.Form{
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #FFF;
+}
+
 .Form h3{
   margin-bottom: 1rem;
   font-size: 1rem;
@@ -53,9 +59,6 @@ body{
 
 #weather-data{
   display: none;
-  border-top: 1px solid #FFF;
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
   text-align: center;
 }
 
@@ -108,9 +111,6 @@ body{
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 30px 30px 30px 30px;
   gap: 20px;
-  padding-top: 1.5rem;
-  margin-top: 1rem;
-  border-top: 1px solid #FFF;
 }
 
 #grid-container button{
@@ -126,8 +126,10 @@ body{
 
 #error-message{
   display: none;
-  padding-top: 1.5rem;
-  margin-top: 1rem;
-  border-top: 1px solid #FFF;
   max-width: 400px;
+}
+
+#loading{
+  display: none;
+  justify-content: center;
 }

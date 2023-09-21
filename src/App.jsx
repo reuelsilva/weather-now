@@ -11,10 +11,14 @@ function App() {
   const API_KEY_1 = '02f15d7d943c547b401971e975e7c6e4'
   const API_KEY_2 = 'OWIhNlaNHT20WEkR1oJMusUzP36nEfx-VkHUNJsJevo'
 
-  const getWeatherData = async (city, key)=>{    
+  const getWeatherData = async (city, key)=>{  
+    document.getElementById('loading').style.display = 'flex'
+
     await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=pt_br&appid=${key}`)
     .then((res)=>{setWeather(res)})
     .catch((error)=>{setWeather(error.response)})
+
+    document.getElementById('loading').style.display = 'none'
   }
 
   const toHide = () => {
@@ -76,12 +80,12 @@ function App() {
       document.getElementById('weather-icon').src = `http://openweathermap.org/img/wn/${weather.data.weather[0].icon}.png`
       document.querySelector('#humidity > span').innerText = `${weather.data.main.humidity}`
       document.querySelector('#wind > span').innerText = `${weather.data.wind.speed}`
-
+      
       document.getElementById('weather-data').style.display = 'block'
       const query = weather.data.name
       setBackground(query, API_KEY_2)
     }else{
-      if(weather.status == 404){
+      if(weather.status == 404){  
         document.getElementById('error-message').style.display = 'block'
         resetBackground()
       }
@@ -133,6 +137,9 @@ function App() {
       </div>
       <div id="error-message">
         <p>Não foi possível encontrar o clima de uma cidade com este nome.</p>
+      </div>
+      <div id="loading">
+        <img src="https://img1.picmix.com/output/stamp/normal/8/5/2/9/509258_fb107.gif" height={50} alt="Loading Icon" />
       </div>
     </div>
   )
