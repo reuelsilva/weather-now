@@ -8,8 +8,8 @@ import './App.css'
 
 function App() {
   const [weather, setWeather] = useState('')
-  const API_KEY_1 = '02f15d7d943c547b401971e975e7c6e4'
-  const API_KEY_2 = 'OWIhNlaNHT20WEkR1oJMusUzP36nEfx-VkHUNJsJevo'
+  const API_KEY_1 = import.meta.env.VITE_WEATHER_API_KEY
+  const API_KEY_2 = import.meta.env.VITE_UNSPLASH_API_KEY
 
   const getWeatherData = async (city, key)=>{  
     document.getElementById('loading').style.display = 'flex'
