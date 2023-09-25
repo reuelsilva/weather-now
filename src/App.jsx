@@ -5,6 +5,7 @@ import { WaterDrop } from "@mui/icons-material"
 import { Air } from "@mui/icons-material"
 import axios from "axios"
 import './App.css'
+import './media-queries.css'
 
 function App() {
   const [weather, setWeather] = useState('')

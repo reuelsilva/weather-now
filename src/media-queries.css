@@ -1,0 +1,31 @@
+@media screen and (max-width:400px) {
+    .Container{
+      padding: 1.2rem;
+      margin: 1.2rem;
+    }
+  
+    .Form h3{
+      font-size: 0.8rem;
+    }
+  
+    #grid-container{
+      gap: 18px;
+    }
+  
+    #grid-container button{
+      font-size: 10px;
+      font-weight: normal;
+    }
+  
+    #weather-data h2{
+      font-size: 1.2rem;
+    }
+  
+    #temperature{
+      font-size: 1.5rem;
+    }
+  
+    #error-message p{
+      font-size: 0.8rem;
+    }
+  }
