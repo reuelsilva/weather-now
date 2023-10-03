@@ -1,7 +1,7 @@
 # weather-now ⛅
   <p>Aplicação <a href="https://reuelsilva.github.io/weather-now/">Weather Now</a> pesquisa pelos dados climáticos <em>(temperatura, umidade, velocidade do vento e condições do tempo)</em> atuais de uma cidade.</p>
   <div align="center">
-    <img src="https://a.imagem.app/oBQDnk.png" height="250"/>        
+    <img src="https://a.imagem.app/okoc6G.png" height="280"/>        
   </div>
  <h2>Tecnologias</h2>
  <ul>
